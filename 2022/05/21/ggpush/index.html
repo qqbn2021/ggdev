@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>WordPress插件果果推送使用教程 | 果果开发</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="推送记录 可以查看推送列表数据，每一次推送都会存一条记录到数据表中。保存的数据有： 推送平台、 推送方式、推送链接数量、 推送状态、推送结果状态码、推送时间。 推送平台：1 百度，2 360，3 搜狗，4 头条，5 神马，6 bing，7 谷歌，8 indexnow，9 yandex，10 Seznam.cz。 推送方式：1 普通收录，2 快速收录，3 js提交，4 api提交，5 indexno">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WordPress插件果果推送使用教程">
+<meta property="og:url" content="https://www.ggdoc.cn/2022/05/21/ggpush/index.html">
+<meta property="og:site_name" content="果果开发">
+<meta property="og:description" content="推送记录 可以查看推送列表数据，每一次推送都会存一条记录到数据表中。保存的数据有： 推送平台、 推送方式、推送链接数量、 推送状态、推送结果状态码、推送时间。 推送平台：1 百度，2 360，3 搜狗，4 头条，5 神马，6 bing，7 谷歌，8 indexnow，9 yandex，10 Seznam.cz。 推送方式：1 普通收录，2 快速收录，3 js提交，4 api提交，5 indexno">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-21T07:40:14.000Z">
+<meta property="article:modified_time" content="2022-05-23T00:27:49.088Z">
+<meta property="article:author" content="果果开发">
+<meta property="article:tag" content="果果推送">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="/css/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?eb051c897dabdcb44eccfc7cbbd50061";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/plugin">插件</a>
+        
+          <a class="main-nav-link" href="/theme">主题</a>
+        
+          <a class="main-nav-link" href="/archives">文章</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-ggpush" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/05/21/ggpush/" class="article-date">
+  <time class="dt-published" datetime="2022-05-21T07:40:14.000Z" itemprop="datePublished">2022-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      WordPress插件果果推送使用教程
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>推送记录</strong></p>
+<p>可以查看推送列表数据，每一次推送都会存一条记录到数据表中。保存的数据有： 推送平台、 推送方式、推送链接数量、 推送状态、推送结果状态码、推送时间。</p>
+<p>推送平台：1 百度，2 360，3 搜狗，4 头条，5 神马，6 bing，7 谷歌，8 indexnow，9 yandex，10 Seznam.cz。</p>
+<p>推送方式：1 普通收录，2 快速收录，3 js提交，4 api提交，5 indexnow。</p>
+<p>如果推送记录过多，可以通过清除功能删除记录。</p>
+<p>如果推送失败了，可以通过详情链接查看失败原因。</p>
+<p><strong>定时任务</strong></p>
+<p>可以查看定时推送的计划任务运行状态，为了确保定时任务稳定运行，您需要定时访问：http:&#x2F;&#x2F;您的域名&#x2F;wp-cron.php。</p>
+<p><code>wp-cron.php</code> 为WordPress自带的运行脚本，通过直接访问它，就可以运行定时任务。</p>
+<p>那么如何做到定时访问 http:&#x2F;&#x2F;您的域名&#x2F;wp-cron.php ？</p>
+<p>如果您用的是宝塔，可以直接在计划任务里添加网址监控即可。</p>
+<p>如果您用的是服务器，可以通过计划任务脚本运行。例如：<code>*/15 * * * * wget --delete-after http://您的域名/wp-cron.php</code></p>
+<p>总之，可以通过各种监控网站功能，将 http:&#x2F;&#x2F;您的域名&#x2F;wp-cron.php 添加到网址监控里即可。</p>
+<p>监控网站一般都需要设置多久访问一次，这个时间可以根据您的服务器情况设置。设置的越小，则计划任务运行的更完美。</p>
+<p>如果您开启了上面网址的监控，您应该需要在网站配置文件（wp-config.php）中添加<code>define(&#39;DISABLE_WP_CRON&#39;, true);</code>，禁止用户访问时执行定时任务，因为一般的定时任务很耗时。</p>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://developer.wordpress.org/plugins/cron/hooking-wp-cron-into-the-system-task-scheduler/">https://developer.wordpress.org/plugins/cron/hooking-wp-cron-into-the-system-task-scheduler/</a>。</p>
+<p><strong>基本设置</strong></p>
+<p>菜单显示位置：某些用户有强迫症，通过这个设置可以将插件菜单显示在任何一个主菜单下面。</p>
+<p>请求超时时间：所有的推送请求超过多少秒后，自动停止推送，默认为30秒。</p>
+<p><strong>通用设置说明</strong></p>
+<p>推送间隔：多少分钟推送一次，设置为0则不推送。</p>
+<p>每次推送链接数量：根据您每天的最大配额以及推送间隔，就可以得到这个数量。</p>
+<p>例如：每天推送的链接总量限制为3000条，如果您的推送间隔设置为60分钟推送一次，也就是1个小时推送一次，那么每次推送链接的数量为：3000 &#x2F; 24 &#x3D;  125。</p>
+<p>注意：某些搜索平台每次提交的最大链接数量和每天推送的链接数量是有限制的。</p>
+<p>推送方式：如果选择最新，则每次推送最新的文章。如果选择随机，则每次推送随机的文章。</p>
+<p>发布文章后推送：建议只开启必要的推送平台，如果全部都开启的话，会造成发布文章很慢，因为它会将链接向每个搜索平台提交，这会很耗时的。</p>
+<p><strong>百度推送设置</strong></p>
+<p>准入密钥：打开百度搜索资源平台，找到资源提交 - 普通收录页面，找到API提交地址。</p>
+<p>例如：</p>
+<p>接口调用地址：<a target="_blank" rel="noopener" href="http://data.zz.baidu.com/urls?site=https://www.ggdoc.cn&token=Fs6pS8kIqgd0V1Ix">http://data.zz.baidu.com/urls?site=https://www.ggdoc.cn&token=Fs6pS8kIqgd0V1Ix</a></p>
+<p>则准入密钥填写的值应为：Fs6pS8kIqgd0V1Ix</p>
+<p>也就是地址中的token参数的值。</p>
+<p><strong>神马推送设置</strong></p>
+<p>站长平台账号：登录时的账号，一般为邮箱账号。</p>
+<p>Authkey：可以在MIP数据提交页面找到。</p>
+<p>神马推送只是MIP数据提交，请须知。</p>
+<p><strong>自动收录设置</strong></p>
+<p>头条自动收录密钥：找打数据提交 - 自动收录页面，找到js提交代码。</p>
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"><span class="keyword">var</span> el = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;script&quot;</span>);</span><br><span class="line">el.<span class="property">src</span> = <span class="string">&quot;https://lf1-cdn-tos.bytegoofy.com/goofy/ttzz/push.js?5283b20ed64d1de0cf9795682aeaeb6a074332a4dae25af38e8c8b70467a260bc112ff4abe50733e0ff1e1071a0fdc024b166ea2a296840a50a5288f35e2ca52&quot;</span>;</span><br><span class="line">el.<span class="property">id</span> = <span class="string">&quot;ttzz&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> s = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&quot;script&quot;</span>)[<span class="number">0</span>];</span><br><span class="line">s.<span class="property">parentNode</span>.<span class="title function_">insertBefore</span>(el, s);</span><br><span class="line">&#125;)(<span class="variable language_">window</span>)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>则上面的 <code>5283b20ed64d1de0cf9795682aeaeb6a074332a4dae25af38e8c8b70467a260bc112ff4abe50733e0ff1e1071a0fdc024b166ea2a296840a50a5288f35e2ca52</code> 为需要填入的值。</p>
+<p>也就是填写 push.js? 后面的一串值。</p>
+<p><strong>必应推送设置</strong></p>
+<p>API密钥：登录必应站长后台，依次打开 设置（页面右上方）、API 访问、API 密钥，就可以看到API 密钥，复制密钥填入即可。</p>
+<p><strong>谷歌推送设置</strong></p>
+<p>密钥：请打开：<a target="_blank" rel="noopener" href="https://developers.google.com/search/apis/indexing-api/v3/prereqs?hl=zh-cn">https://developers.google.com/search/apis/indexing-api/v3/prereqs?hl=zh-cn</a> ，按照页面上的步骤获取到json密钥（管理服务帐号密钥）文件，无需关心代码部分，只需要完成申请密钥和网站配置操作即可。</p>
+<p>此处填写的内容就是这个json密钥文件中的所有内容。</p>
+<p>需要注意的是，您的服务器能否访问谷歌相关网站，如果不能访问，则不可以使用谷歌推送。</p>
+<p><strong>IndexNow推送设置</strong></p>
+<p>密钥：这个密钥不需要去任何平台申请，您可以随意输入任意长度的字符串即可，要求32位是确保安全，而不是必须的。</p>
+<p>搜索引擎：只有指定的几个搜索引擎可以使用IndexNow推送，您可以随意勾选使用哪几个。</p>
+<p><strong>Sitemap设置</strong></p>
+<p>Sitemap文件名：这个就是生成的Sitemap文件的文件名，为了安全，请设置的复杂一点。</p>
+<p>搜索引擎平台会周期性的访问这个提交地址，通过定时生成这个文件，确保将要提交的链接生成在里面。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://www.ggdoc.cn/2022/05/21/ggpush/" data-id="cl3fk9d0s0000t8u3dkts1gzp" data-title="WordPress插件果果推送使用教程" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%9C%E6%9E%9C%E6%8E%A8%E9%80%81/" rel="tag">果果推送</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/05/21/double-title/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">WordPress插件双标题使用教程</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E6%A0%87%E9%A2%98/" rel="tag">双标题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%9C%E6%9E%9C%E6%8E%A8%E9%80%81/" rel="tag">果果推送</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E5%8F%8C%E6%A0%87%E9%A2%98/" style="font-size: 10px;">双标题</a> <a href="/tags/%E6%9E%9C%E6%9E%9C%E6%8E%A8%E9%80%81/" style="font-size: 10px;">果果推送</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/21/ggpush/">WordPress插件果果推送使用教程</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/21/double-title/">WordPress插件双标题使用教程</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 果果开发
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/plugin" class="mobile-nav-link">插件</a>
+  
+    <a href="/theme" class="mobile-nav-link">主题</a>
+  
+    <a href="/archives" class="mobile-nav-link">文章</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

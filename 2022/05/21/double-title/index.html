@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>WordPress插件双标题使用教程 | 果果开发</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="设置 菜单显示位置：某些用户有强迫症，通过这个设置可以将插件菜单显示在任何一个主菜单下面。 请求超时时间：所有的推送请求超过多少秒后，自动停止推送，默认为30秒。 授权码：目前购买后不需要授权码。 双标题模板：原标题使用{原标题}，副标题使用{副标题}。例如：{原标题}（{副标题}）。 生成模式：手动生成需要自己手动从接口数据中选择一个副标题，而自动生成则会自动从接口数据中选择一个副标题。 从原标">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WordPress插件双标题使用教程">
+<meta property="og:url" content="https://www.ggdoc.cn/2022/05/21/double-title/index.html">
+<meta property="og:site_name" content="果果开发">
+<meta property="og:description" content="设置 菜单显示位置：某些用户有强迫症，通过这个设置可以将插件菜单显示在任何一个主菜单下面。 请求超时时间：所有的推送请求超过多少秒后，自动停止推送，默认为30秒。 授权码：目前购买后不需要授权码。 双标题模板：原标题使用{原标题}，副标题使用{副标题}。例如：{原标题}（{副标题}）。 生成模式：手动生成需要自己手动从接口数据中选择一个副标题，而自动生成则会自动从接口数据中选择一个副标题。 从原标">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-21T07:40:14.000Z">
+<meta property="article:modified_time" content="2022-05-23T00:42:08.385Z">
+<meta property="article:author" content="果果开发">
+<meta property="article:tag" content="双标题">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="/css/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?eb051c897dabdcb44eccfc7cbbd50061";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/plugin">插件</a>
+        
+          <a class="main-nav-link" href="/theme">主题</a>
+        
+          <a class="main-nav-link" href="/archives">文章</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-double-title" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/05/21/double-title/" class="article-date">
+  <time class="dt-published" datetime="2022-05-21T07:40:14.000Z" itemprop="datePublished">2022-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      WordPress插件双标题使用教程
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>设置</strong></p>
+<p>菜单显示位置：某些用户有强迫症，通过这个设置可以将插件菜单显示在任何一个主菜单下面。</p>
+<p>请求超时时间：所有的推送请求超过多少秒后，自动停止推送，默认为30秒。</p>
+<p>授权码：目前购买后不需要授权码。</p>
+<p>双标题模板：原标题使用{原标题}，副标题使用{副标题}。例如：{原标题}（{副标题}）。</p>
+<p>生成模式：手动生成需要自己手动从接口数据中选择一个副标题，而自动生成则会自动从接口数据中选择一个副标题。</p>
+<p>从原标题匹配副标题：如果您的文章原标题本来就是双标题，可以通过此功能自动匹配到副标题。</p>
+<p>相似度：原标题和副标题的相似度，自动生成模式将按照相似度设置来自动提取副标题。</p>
+<p>原标题最大长度：当原标题超过最大长度后，此文章不使用双标题。设置为0则不限制最大长度。</p>
+<p>启用标签栏上的双标题：开启后，将会开启标签栏双标题，搜索引擎将会收录此标题。</p>
+<p>启用页面上的双标题：开启后，文章列表页面、详情页面上的标题都会显示为双标题。建议不开启。</p>
+<p>启用wp_title过滤器：如果无法修改标签栏上的标题，可以设置为是。</p>
+<p>添加网站名称：某些插件或主题可能会自动添加网站名称，设置为是后，插件会在wp_title过滤器中添加网站名称。</p>
+<p>添加分隔符：某些插件或主题可能会自动在标题和网站名称之间添加分隔符，设置为是后，插件会在wp_title过滤器中添加分隔符。</p>
+<p>插件优先级：某些插件或主题拥有较高的执行优先级，可以通过设置优先级增加双标题成功率。</p>
+<p><strong>双标题列表</strong></p>
+<p>只有在这里的文章，才会在页面上启用双标题。</p>
+<p>通过同步文章功能，可以将之前的旧文章同步过来，之后旧文章就可以使用双标题了。</p>
+<p>通过同步标题功能，可以将没有生成副标题的文章，自动生成一个副标题。</p>
+<p>您还可以手动设置副标题，删除副标题。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://www.ggdoc.cn/2022/05/21/double-title/" data-id="cl3hzy9kj0009q8u346ra148u" data-title="WordPress插件双标题使用教程" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8F%8C%E6%A0%87%E9%A2%98/" rel="tag">双标题</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/05/21/ggpush/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          WordPress插件果果推送使用教程
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E6%A0%87%E9%A2%98/" rel="tag">双标题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%9C%E6%9E%9C%E6%8E%A8%E9%80%81/" rel="tag">果果推送</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E5%8F%8C%E6%A0%87%E9%A2%98/" style="font-size: 10px;">双标题</a> <a href="/tags/%E6%9E%9C%E6%9E%9C%E6%8E%A8%E9%80%81/" style="font-size: 10px;">果果推送</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/21/ggpush/">WordPress插件果果推送使用教程</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/21/double-title/">WordPress插件双标题使用教程</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 果果开发
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/plugin" class="mobile-nav-link">插件</a>
+  
+    <a href="/theme" class="mobile-nav-link">主题</a>
+  
+    <a href="/archives" class="mobile-nav-link">文章</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
