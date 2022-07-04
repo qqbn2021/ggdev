@@ -1055,14 +1055,14 @@ a.article-title:hover {
   color: #999;
 }
 #footer a {
-  color: #258fb8;
+  color: #eeeeee;
   text-decoration: none;
 }
 #footer a:hover {
   text-decoration: underline;
 }
 #footer-info {
-  line-height: 1.6em;
+  line-height: 1em;
   font-size: 0.85em;
   text-align: center;
 }

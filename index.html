@@ -67,6 +67,100 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-double-title-api" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/07/03/double-title-api/" class="article-date">
+  <time class="dt-published" datetime="2022-07-03T07:40:14.000Z" itemprop="datePublished">2022-07-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/07/03/double-title-api/">自实现双标题接口</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>如果您想要实现自己的双标题接口，则需要了解以下参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>说明</th>
+<th>位置</th>
+<th>PHP示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HTTP_GGDEV_CDKEY</td>
+<td>授权码</td>
+<td>请求头</td>
+<td>$_SERVER[‘HTTP_GGDEV_CDKEY’]</td>
+</tr>
+<tr>
+<td>HTTP_GGDEV_ACTIVATE_DOMAIN</td>
+<td>授权域名</td>
+<td>请求头</td>
+<td>$_SERVER[‘HTTP_GGDEV_ACTIVATE_DOMAIN’]</td>
+</tr>
+<tr>
+<td>title</td>
+<td>文章标题</td>
+<td>body</td>
+<td>$_POST[‘title’]</td>
+</tr>
+</tbody></table>
+<p>上面的3个参数，在插件请求时会携带过来，您可以根据以上参数来做接口限制。</p>
+<p>接口返回数据参数说明：</p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>data</td>
+<td>副标题数组，是一维数组（数组里的值为字符串）</td>
+</tr>
+<tr>
+<td>status</td>
+<td>有副标题，设为1，没有副标题设为0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>自定义返回信息</td>
+</tr>
+</tbody></table>
+<p>接口示例：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 以下参数为插件请求接口时传递，请根据需要进行判断</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// 授权码</span></span><br><span class="line"><span class="variable">$cdkey</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">empty</span>(<span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_GGDEV_CDKEY&#x27;</span>])) &#123;</span><br><span class="line">    <span class="variable">$cdkey</span> = <span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_GGDEV_CDKEY&#x27;</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 授权域名</span></span><br><span class="line"><span class="variable">$activateDomain</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">empty</span>(<span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_GGDEV_ACTIVATE_DOMAIN&#x27;</span>])) &#123;</span><br><span class="line">    <span class="variable">$activateDomain</span> = <span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_GGDEV_ACTIVATE_DOMAIN&#x27;</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 原标题</span></span><br><span class="line"><span class="variable">$title</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">empty</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;title&#x27;</span>])) &#123;</span><br><span class="line">    <span class="variable">$title</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;title&#x27;</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求成功后，需要返回json格式的数据。如果有双标题数据，status值为1，没有则为0</span></span><br><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&#x27;content-type:application/json;charset=utf-8&#x27;</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">json_encode</span>(<span class="keyword">array</span>(</span><br><span class="line">    <span class="string">&#x27;data&#x27;</span> =&gt; <span class="keyword">array</span>(<span class="string">&#x27;副标题1&#x27;</span>, <span class="string">&#x27;副标题2&#x27;</span>, <span class="string">&#x27;副标题3&#x27;</span>),</span><br><span class="line">    <span class="string">&#x27;status&#x27;</span> =&gt; <span class="number">1</span>,</span><br><span class="line">    <span class="string">&#x27;msg&#x27;</span> =&gt; <span class="string">&#x27;获取成功&#x27;</span></span><br><span class="line">));</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://www.ggdoc.cn/2022/07/03/double-title-api/" data-id="cl552w05m0000okfmdb0n0s89" data-title="自实现双标题接口" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8F%8C%E6%A0%87%E9%A2%98/" rel="tag">双标题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-ggpush" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/05/21/ggpush/" class="article-date">
@@ -211,6 +305,7 @@
         <p><strong>设置</strong></p>
 <p>菜单显示位置：某些用户有强迫症，通过这个设置可以将插件菜单显示在任何一个主菜单下面。</p>
 <p>请求超时时间：所有的推送请求超过多少秒后，自动停止推送，默认为30秒。</p>
+<p>双标题接口地址：如果您用的是免费版，则需要填写双标题接口地址。如果您用的是商业版，则无需填写。当填写了双标题接口地址，则插件优先从此接口地址获取双标题数据。双标题接口实现代码可以参考：<a href="/2022/07/03/double-title-api/">点击查看</a>。</p>
 <p>授权码：目前购买后不需要授权码。</p>
 <p>双标题模板：原标题使用{原标题}，副标题使用{副标题}。例如：{原标题}（{副标题}）。</p>
 <p>生成模式：手动生成需要自己手动从接口数据中选择一个副标题，而自动生成则会自动从接口数据中选择一个副标题。</p>
@@ -267,18 +362,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/%E5%8F%8C%E6%A0%87%E9%A2%98/" style="font-size: 10px;">双标题</a> <a href="/tags/%E6%9E%9C%E6%9E%9C%E6%8E%A8%E9%80%81/" style="font-size: 10px;">果果推送</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a></li></ul>
     </div>
   </div>
 
@@ -289,6 +375,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/07/03/double-title-api/">自实现双标题接口</a>
+          </li>
         
           <li>
             <a href="/2022/05/21/ggpush/">WordPress插件果果推送使用教程</a>
@@ -310,8 +400,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      
-      &copy; 2022 <a href="https://www.z1xz.com/" target="_blank" title="Z1下载">Z1下载</a>
+      <a href="https://www.z1xz.com/" target="_blank" title="Z1下载">Z1下载</a>
     </div>
   </div>
 </footer>
