@@ -244,7 +244,7 @@
 <p>Authkey：可以在MIP数据提交页面找到。</p>
 <p>神马推送只是MIP数据提交，请须知。</p>
 <p><strong>自动收录设置</strong></p>
-<p>头条自动收录密钥：找打数据提交 - 自动收录页面，找到js提交代码。</p>
+<p>头条自动收录密钥：打开头条站长平台，找到数据提交 - 自动收录页面，找到js提交代码。</p>
 <p>例如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"><span class="keyword">var</span> el = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;script&quot;</span>);</span><br><span class="line">el.<span class="property">src</span> = <span class="string">&quot;https://lf1-cdn-tos.bytegoofy.com/goofy/ttzz/push.js?5283b20ed64d1de0cf9795682aeaeb6a074332a4dae25af38e8c8b70467a260bc112ff4abe50733e0ff1e1071a0fdc024b166ea2a296840a50a5288f35e2ca52&quot;</span>;</span><br><span class="line">el.<span class="property">id</span> = <span class="string">&quot;ttzz&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> s = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&quot;script&quot;</span>)[<span class="number">0</span>];</span><br><span class="line">s.<span class="property">parentNode</span>.<span class="title function_">insertBefore</span>(el, s);</span><br><span class="line">&#125;)(<span class="variable language_">window</span>)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
@@ -306,7 +306,7 @@
 <p>菜单显示位置：某些用户有强迫症，通过这个设置可以将插件菜单显示在任何一个主菜单下面。</p>
 <p>请求超时时间：所有的推送请求超过多少秒后，自动停止推送，默认为30秒。</p>
 <p>双标题接口地址：如果您用的是免费版，则需要填写双标题接口地址。如果您用的是商业版，则无需填写。当填写了双标题接口地址，则插件优先从此接口地址获取双标题数据。双标题接口实现代码可以参考：<a href="/2022/07/03/double-title-api/">点击查看</a>。</p>
-<p>授权码：目前购买后不需要授权码。</p>
+<p>授权码：如果您的双标题接口需要授权码才可以使用，则需要填写。否则不需要填写授权码。</p>
 <p>双标题模板：原标题使用{原标题}，副标题使用{副标题}。例如：{原标题}（{副标题}）。</p>
 <p>生成模式：手动生成需要自己手动从接口数据中选择一个副标题，而自动生成则会自动从接口数据中选择一个副标题。</p>
 <p>从原标题匹配副标题：如果您的文章原标题本来就是双标题，可以通过此功能自动匹配到副标题。</p>
